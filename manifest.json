@@ -7,6 +7,11 @@
 		"default_popup": "popup.html"
 	},
 
+	"chrome_url_overrides" : 
+  	{
+  		"newtab": "popup.html"
+  	},
+
 	"background": { // runs in the background all the time
 		"scripts": ["eventPage.js"],
 		"persistent": false
@@ -15,15 +20,20 @@
 	"content_scripts": 
 	[
 		{
-			"matches": ["https://www.cibc.com/*"],
+			"matches": ["https://www.cibconline.cibc.com/*", "https://www.cibc.com/*", "https://developer.chrome.com/*"],
 			"js": ["content.js", "jquery-3.3.1.min.js"]
 		}
 	], 
 
 	"permissions": 
 	[
-		"tabs", 
-		"https://www.cibconline.cibc.com/*"
+		"storage",
+		"activeTab",
+		"tabs",
+		"https://www.cibconline.cibc.com/*",
+		"https://developer.chrome.com/*",
+		"https://www.cibconline.cibc.com/*",
+		"https://www.cibc.com/*"
 	]
 
 }
