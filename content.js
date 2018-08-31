@@ -1,4 +1,5 @@
-// This file will only be used to srape teh info.
+// This file will only be used to srape teh info. and send it forward to 
+// eventPage.js to store the variables.
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 	if (request.todo = "Calculate") {
 		var amountSpent = getValuesFromColumn(3);
@@ -16,7 +17,7 @@ function getValuesFromColumn(columnNumber)  {
 	$('#ember2181 tbody tr td:nth-child(' + columnNumber + ')').each( function(){
 	   //add item to array
 	   if ($(this).text().includes("$")) {
-	   		console.log( $(this)[0].innerText.valueOf() );
+	   		// console.log( $(this)[0].innerText.valueOf() );
 	   		amount = parseInt(amount) + parseInt($(this)[0].innerText.substring(1));
 	   }
 	});

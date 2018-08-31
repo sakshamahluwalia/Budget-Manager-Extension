@@ -1,4 +1,5 @@
 // recieves messages since it is always running in the background.
+// only responsible for updating the values in the database.
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 	if (request.todo == "showPageAction") {
 		highLightIconInCurrentTab();
