@@ -4,14 +4,14 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 	if (request.todo == "showPageAction") {
 		highLightIconInCurrentTab();
 	} else if (request.todo == "amountGained") {
-		// setVariable("amountGained", parseInt(request.amount));
-		chrome.storage.sync.set({"amountGained": parseInt(request.amount)}, 
+		// setVariable("amountGained", parseFloat(request.amount));
+		chrome.storage.sync.set({"amountGained": parseFloat(request.amount)}, 
 		function() {
 			console.log("Done");
 		});
 	} else if (request.todo == "amountSpent") {
-		// setVariable("amountSpent", parseInt(request.amount));
-		chrome.storage.sync.set({"amountSpent": parseInt(request.amount)}, 
+		// setVariable("amountSpent", parseFloat(request.amount));
+		chrome.storage.sync.set({"amountSpent": parseFloat(request.amount)}, 
 		function() {
 			console.log("Done");
 		});

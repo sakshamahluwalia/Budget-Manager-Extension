@@ -3,10 +3,10 @@ $(function() {
 
 	chrome.storage.sync.get(["amountSpent", "amountGained"], function(result) {
 		if (result.amountSpent) {
-			$("#amountSpent").val(result.amountSpent);
+			$("#amountSpent").val(parseInt(result.amountSpent));
 		}
 		if (result.amountGained) {
-			$("#amountGained").val(result.amountGained);
+			$("#amountGained").val(parseInt(result.amountGained));
 		}
 	});
 
@@ -16,8 +16,14 @@ $(function() {
 		});
 
 		chrome.storage.sync.get(["amountSpent", "amountGained"], function(result) {
-			$("#amountSpent").val(result.amountSpent);
-			$("#amountGained").val(result.amountGained);
+			var amountSpent = result.amountSpent;
+			var amountGained = result.amountGained;
+			var value = amountSpent - Math.floor(amountSpent);
+			$("#amountSpent").val(parseInt(amountSpent));
+			$("#amountGained").val(parseInt(amountGained.toFixed(0)));
+			$("#amountSpentDecimal").text(value.toFixed(3).substring(1));
+			var value = amountGained - Math.floor(amountGained);
+			$("#amountGainedDecimal").val(value.toFixed(3).substring(1));
     	});
 	});
 
