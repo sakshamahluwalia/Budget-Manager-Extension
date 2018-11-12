@@ -1,4 +1,4 @@
-// This file will only be used to srape teh info. and send it forward to 
+// This file will only be used to srape the info. and send it forward to 
 // eventPage.js to store the variables.
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 	if (request.todo = "Calculate") {
